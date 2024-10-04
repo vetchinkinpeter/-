@@ -1,29 +1,25 @@
-def rec(n):
-    sp = []
-    flag = 0
-    if n == 1:
-        return 'ГОЙДА'
-    for i in range(2,n):
-        if n % i == 0:
-            sp1 = rec(i)
-            sp2 = rec(n//i)
-            for elem in sp1:
-                if elem not in sp:
-                    sp.append(elem)
-            for elem in sp2:
-                if elem not in sp:
-                    sp.append(elem)
-            flag = 1
-            break
-
-    if flag == 0:
-        sp.append(n)
-        return sp
-    else:
-        return sp
-n = int(input())
-print(rec(n))
-
+N = int(input())
+prime_dividers = []
+for i in range(2,N):
+    t = 0
+    if N % i > 0:
+        continue
+    for j in prime_dividers:
+        if i % j == 0:
+            t = 1
+    if t == 1:
+        continue
+    prime_dividers.append(i)
+print(prime_dividers)   
+x =  len(prime_dividers)
+divides_pover = [0]*x
+for i in range(x):
+    count = 0
+    while N % prime_dividers[i] == 0:
+        count += 1
+        N = N // prime_dividers[i]
+    divides_pover[i] = count
+print(divides_pover)        
 
 
 
