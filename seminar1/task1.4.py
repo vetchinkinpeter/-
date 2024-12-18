@@ -8,7 +8,7 @@ if f == '+':
         out += elem
 elif f == '-':
     out = sp[0]
-    for i in range(1,len(sp)-1):
+    for i in range(1,len(sp)):
         out -= sp[i]
 elif f == '*':
     out = 1
